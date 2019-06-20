@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.DS_Store
+Java/.idea/.name
+Java/.idea/workspace.xml
+Java/.idea/compiler.xml
+Java/.idea/encodings.xml
+Java/.idea/misc.xml
+Java/.idea/vcs.xml
+Java/target/maven-archiver/pom.properties
+Java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+Java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+Java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+Java/target/surefire-reports/TEST-com.example.AppTest.xml
+Java/target/surefire-reports/com.example.AppTest.txt
