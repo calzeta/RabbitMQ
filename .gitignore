@@ -35,3 +35,9 @@ Java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/c
 Java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 Java/target/surefire-reports/TEST-com.example.AppTest.xml
 Java/target/surefire-reports/com.example.AppTest.txt
+Java/.classpath
+Java/.project
+Java/.settings/org.eclipse.core.resources.prefs
+Java/.settings/org.eclipse.jdt.apt.core.prefs
+Java/.settings/org.eclipse.jdt.core.prefs
+Java/.settings/org.eclipse.m2e.core.prefs

@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 import pika
+import ctypes
 
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
+    pika.ConnectionParameters(host='172.17.0.2'))
 
 channel = connection.channel()
 
 channel.queue_declare(queue='rpc_queue')
 
 
-def fib(n):
+def fib(n:int) -> int:
     if n == 0:
         return 0
     elif n == 1:
@@ -17,18 +18,23 @@ def fib(n):
     else:
         return fib(n - 1) + fib(n - 2)
 
+def cppSharedLib(x:int,y:int) -> int:
+    TestLib = ctypes.cdll.LoadLibrary('./libTestLib.so')
+    return TestLib.SampleAddInt(x,y)
+
 
 def on_request(ch, method, props, body):
     n = int(body)
 
     print(" [.] fib(%s)" % n)
     response = fib(n)
+    resp = cppSharedLib(n, n)
 
     ch.basic_publish(exchange='',
                      routing_key=props.reply_to,
                      properties=pika.BasicProperties(correlation_id = \
                                                          props.correlation_id),
-                     body=str(response))
+                     body=' - '.join([str(response),str(resp)]) )
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
