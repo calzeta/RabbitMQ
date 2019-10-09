@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import pika
 import ctypes
+import time
 
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host='172.17.0.2'))
@@ -20,6 +21,7 @@ def fib(n:int) -> int:
 
 def cppSharedLib(x:int,y:int) -> int:
     TestLib = ctypes.cdll.LoadLibrary('./libTestLib.so')
+    time.sleep(30)
     return TestLib.SampleAddInt(x,y)
 
 
